@@ -8,13 +8,13 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductSender {
+public class ProductSenderService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProductSender.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductSenderService.class);
 
     private final KafkaTemplate<String, DummyProductDTO> kafkaTemplate;
 
-    public ProductSender(KafkaTemplate<String, DummyProductDTO> kafkaTemplate) {
+    public ProductSenderService(KafkaTemplate<String, DummyProductDTO> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 

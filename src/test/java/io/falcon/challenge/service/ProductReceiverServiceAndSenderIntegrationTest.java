@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @DirtiesContext
-public class ProductReceiverAndSenderIntegrationTest {
+public class ProductReceiverServiceAndSenderIntegrationTest {
 
     private static final String HELLOWORLD_TOPIC = "producttopic.t";
 
@@ -26,19 +26,19 @@ public class ProductReceiverAndSenderIntegrationTest {
     public static KafkaEmbedded kafkaEmbedded = new KafkaEmbedded(1, true, HELLOWORLD_TOPIC);
 
     @Autowired
-    private ProductReceiver productReceiver;
+    private ProductReceiverService productReceiverService;
 
     @Autowired
-    private ProductSender productSender;
+    private ProductSenderService productSenderService;
 
     @Test
     public void testProductSendAndReceive() throws InterruptedException {
-        productSender.send(HELLOWORLD_TOPIC, DummyProductDTOBuilder.aDummyProductDTO()
+        productSenderService.send(HELLOWORLD_TOPIC, DummyProductDTOBuilder.aDummyProductDTO()
                 .productName("testProduct")
                 .productDescription("testProductNameDescription")
                 .build());
-        productReceiver.getLatch().await(3000, TimeUnit.MILLISECONDS);
-        assertThat(productReceiver.getLatch().getCount()).isEqualTo(0);
+        productReceiverService.getLatch().await(3000, TimeUnit.MILLISECONDS);
+        assertThat(productReceiverService.getLatch().getCount()).isEqualTo(0);
     }
 
 }
