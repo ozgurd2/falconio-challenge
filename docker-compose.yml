@@ -25,6 +25,7 @@ services:
      environment:
        APPLICATION_SECRET: 123456
        ZK_HOSTS: zookeeper:2181
+       KM_ARGS: -Djava.net.preferIPv4Stack=true
 
    db:
      image: postgres
