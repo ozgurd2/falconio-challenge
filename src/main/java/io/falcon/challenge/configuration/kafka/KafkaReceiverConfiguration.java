@@ -1,6 +1,5 @@
 package io.falcon.challenge.configuration.kafka;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.falcon.challenge.dto.DummyProductDTO;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -27,7 +26,7 @@ import java.util.Map;
 @EnableKafka
 public class KafkaReceiverConfiguration {
 
-    @Value("${kafka.bootstrap-servers}")
+    @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;
 
     private Map<String, Object> consumerConfigs() {
