@@ -20,7 +20,7 @@ Run the following commands in separate terminal to run application.
 
 Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
 
-##Architecture 
+## Architecture 
 * DummyProductJsonController#createProduct : A REST endpoint is taking a dummy JSON input 
     
     dummy json : io.falcon.challenge.dto.DummyProductDTO
