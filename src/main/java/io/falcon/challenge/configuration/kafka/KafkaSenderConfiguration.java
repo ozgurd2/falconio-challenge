@@ -18,8 +18,6 @@ import java.util.Map;
 @Configuration
 public class KafkaSenderConfiguration {
 
-    private ObjectMapper objectMapper = new ObjectMapper();
-
     @Value("${kafka.bootstrap-servers}")
     private String bootstrapServers;
 

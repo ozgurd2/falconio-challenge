@@ -27,8 +27,6 @@ import java.util.Map;
 @EnableKafka
 public class KafkaReceiverConfiguration {
 
-    private ObjectMapper objectMapper = new ObjectMapper();
-
     @Value("${kafka.bootstrap-servers}")
     private String bootstrapServers;
 
