@@ -34,9 +34,8 @@ public class ProductReceiverConsumer {
      * @param dummyProductDTO dto
      */
     @KafkaListener(topics = "${spring.kafka.topic.producttopic}")
-    public void receive(DummyProductDTO dummyProductDTO) throws InterruptedException {
+    public void receive(DummyProductDTO dummyProductDTO)  {
         LOGGER.info("received payload {} ", dummyProductDTO);
-        Thread.sleep(1000L);
         saveProduct(dummyProductDTO);
         latch.countDown();
     }

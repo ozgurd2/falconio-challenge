@@ -1,6 +1,5 @@
-package io.falcon.challenge.configuration.kafka;
+package io.falcon.challenge.consumer;
 
-import io.falcon.challenge.consumer.ProductReceiverConsumer;
 import io.falcon.challenge.dto.DummyProductDTOBuilder;
 import io.falcon.challenge.dto.TopicNames;
 import io.falcon.challenge.service.ProductSenderService;
