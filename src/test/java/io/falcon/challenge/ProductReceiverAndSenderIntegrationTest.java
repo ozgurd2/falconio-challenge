@@ -1,6 +1,7 @@
 package io.falcon.challenge;
 
 import io.falcon.challenge.dto.DummyProductDTOBuilder;
+import io.falcon.challenge.dto.TopicNames;
 import io.falcon.challenge.service.ProductReceiverService;
 import io.falcon.challenge.service.ProductSenderService;
 import org.junit.ClassRule;
@@ -22,10 +23,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DirtiesContext
 public class ProductReceiverAndSenderIntegrationTest {
 
-    private static final String HELLOWORLD_TOPIC = "producttopic.t";
-
     @ClassRule
-    public static KafkaEmbedded kafkaEmbedded = new KafkaEmbedded(1, true, HELLOWORLD_TOPIC);
+    public static KafkaEmbedded kafkaEmbedded = new KafkaEmbedded(1, true, TopicNames.PRODUCT_TOPIC);
 
     @Autowired
     private ProductReceiverService productReceiverService;
@@ -35,7 +34,7 @@ public class ProductReceiverAndSenderIntegrationTest {
 
     @Test
     public void testProductSendAndReceive() throws InterruptedException {
-        productSenderService.send(HELLOWORLD_TOPIC, DummyProductDTOBuilder.aDummyProductDTO()
+        productSenderService.send(TopicNames.PRODUCT_TOPIC, DummyProductDTOBuilder.aDummyProductDTO()
                 .productName("testProduct")
                 .productDescription("testProductNameDescription")
                 .build());
