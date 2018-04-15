@@ -1,4 +1,4 @@
-package io.falcon.challenge;
+package io.falcon.challenge.configuration.kafka;
 
 import io.falcon.challenge.dto.DummyProductDTOBuilder;
 import io.falcon.challenge.dto.TopicNames;
