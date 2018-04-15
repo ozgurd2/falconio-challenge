@@ -23,7 +23,8 @@ Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
 ## Architecture 
 * DummyProductJsonController#createProduct : A REST endpoint is taking a dummy JSON input 
   dummy json : io.falcon.challenge.dto.DummyProductDTO
-
+  
+  sample call : 
 
 
     curl -X POST http://localhost:8080/create -H 'content-type: application/json' -d '{"productName": "testName","productDescription": "testDescription"}'
@@ -32,7 +33,8 @@ Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
   entity : io.falcon.challenge.entity.Product
     
 * DummyProductJsonController#getProducts :A REST endpoint is implemented for retrieving all the messages persisted in JSON format from the database
-
+   
+   sample call: 
 
 
     curl -X GET http://localhost:8080/getProducts
