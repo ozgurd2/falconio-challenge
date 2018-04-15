@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
 
+/**
+ * dummy json for feeding our restservice
+ */
 public class DummyProductDTO implements Serializable{
 
     @JsonIgnore

@@ -1,6 +1,5 @@
 package io.falcon.challenge.configuration.kafka;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.falcon.challenge.dto.DummyProductDTO;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -15,6 +14,9 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Kafka consumer configuration for DummyDtoProduct class
+ */
 @Configuration
 public class KafkaSenderConfiguration {
 

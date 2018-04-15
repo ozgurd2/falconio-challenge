@@ -20,7 +20,7 @@ public class ProductSenderService {
 
     @Async
     public void send(String topic, DummyProductDTO dummyProductDTO) {
-        LOGGER.info("sending payload {}", dummyProductDTO.toString());
+        LOGGER.info("sending payload {}", dummyProductDTO);
         kafkaTemplate.send(topic, dummyProductDTO);
     }
 

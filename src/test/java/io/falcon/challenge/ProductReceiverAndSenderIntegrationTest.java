@@ -1,6 +1,8 @@
-package io.falcon.challenge.service;
+package io.falcon.challenge;
 
 import io.falcon.challenge.dto.DummyProductDTOBuilder;
+import io.falcon.challenge.service.ProductReceiverService;
+import io.falcon.challenge.service.ProductSenderService;
 import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @DirtiesContext
-public class ProductReceiverServiceAndSenderIntegrationTest {
+public class ProductReceiverAndSenderIntegrationTest {
 
     private static final String HELLOWORLD_TOPIC = "producttopic.t";
 
