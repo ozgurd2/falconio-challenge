@@ -23,6 +23,7 @@ public class ProductReceiverService {
 
     private final ProductRepository productRepository;
 
+
     public ProductReceiverService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
@@ -41,7 +42,7 @@ public class ProductReceiverService {
     }
 
     private void saveProduct(DummyProductDTO dummyProductDTO) {
-        Product product =new Product();
+        Product product = new Product();
         product.setProductDescription(dummyProductDTO.getProductDescription());
         product.setProductName(dummyProductDTO.getProductName());
         productRepository.save(product);
