@@ -4,6 +4,7 @@ import io.falcon.challenge.dto.DummyProductDTOBuilder;
 import io.falcon.challenge.dto.TopicNames;
 import io.falcon.challenge.service.ProductReceiverService;
 import io.falcon.challenge.service.ProductSenderService;
+import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,6 +32,11 @@ public class ProductReceiverAndSenderIntegrationTest {
 
     @Autowired
     private ProductSenderService productSenderService;
+
+    @Before
+    public void setup() throws Exception {
+        kafkaEmbedded.before();
+    }
 
     @Test
     public void testProductSendAndReceive() throws InterruptedException {
