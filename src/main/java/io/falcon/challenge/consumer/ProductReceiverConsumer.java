@@ -1,4 +1,4 @@
-package io.falcon.challenge.service;
+package io.falcon.challenge.consumer;
 
 import io.falcon.challenge.dto.DummyProductDTO;
 import io.falcon.challenge.entity.Product;
@@ -15,16 +15,16 @@ import java.util.concurrent.CountDownLatch;
  * Integration test is written ProductReceiverAndSenderIntegrationTest
  */
 @Service
-public class ProductReceiverService {
+public class ProductReceiverConsumer {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProductReceiverService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductReceiverConsumer.class);
 
     private CountDownLatch latch = new CountDownLatch(1);//just for test purposes....
 
     private final ProductRepository productRepository;
 
 
-    public ProductReceiverService(ProductRepository productRepository) {
+    public ProductReceiverConsumer(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 

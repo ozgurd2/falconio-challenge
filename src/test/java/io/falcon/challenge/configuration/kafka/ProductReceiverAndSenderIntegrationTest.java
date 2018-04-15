@@ -1,8 +1,8 @@
 package io.falcon.challenge.configuration.kafka;
 
+import io.falcon.challenge.consumer.ProductReceiverConsumer;
 import io.falcon.challenge.dto.DummyProductDTOBuilder;
 import io.falcon.challenge.dto.TopicNames;
-import io.falcon.challenge.service.ProductReceiverService;
 import io.falcon.challenge.service.ProductSenderService;
 import org.junit.Before;
 import org.junit.ClassRule;
@@ -28,7 +28,7 @@ public class ProductReceiverAndSenderIntegrationTest {
     public static KafkaEmbedded kafkaEmbedded = new KafkaEmbedded(1, true, TopicNames.PRODUCT_TOPIC);
 
     @Autowired
-    private ProductReceiverService productReceiverService;
+    private ProductReceiverConsumer productReceiverConsumer;
 
     @Autowired
     private ProductSenderService productSenderService;
@@ -44,8 +44,8 @@ public class ProductReceiverAndSenderIntegrationTest {
                 .productName("testProduct")
                 .productDescription("testProductNameDescription")
                 .build());
-        productReceiverService.getLatch().await(3000, TimeUnit.MILLISECONDS);
-        assertThat(productReceiverService.getLatch().getCount()).isEqualTo(0);
+        productReceiverConsumer.getLatch().await(3000, TimeUnit.MILLISECONDS);
+        assertThat(productReceiverConsumer.getLatch().getCount()).isEqualTo(0);
     }
 
 }
