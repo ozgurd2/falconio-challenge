@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.data.domain.Sort;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,7 +31,7 @@ public class RetrieveAllProductServiceTest {
         product.setProductName("name");
         product.setProductDescription("description");
 
-        when(productRepository.findAll()).thenReturn(Arrays.asList(product));
+        when(productRepository.findAll(new Sort(Sort.Direction.DESC, "id"))).thenReturn(Arrays.asList(product));
 
         List<DummyProductDTO> products = retrieveAllProductService.getProducts();
 

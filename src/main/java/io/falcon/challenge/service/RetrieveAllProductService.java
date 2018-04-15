@@ -3,6 +3,7 @@ package io.falcon.challenge.service;
 import io.falcon.challenge.dto.DummyProductDTO;
 import io.falcon.challenge.mapper.ProductToDtoMapper;
 import io.falcon.challenge.repository.ProductRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class RetrieveAllProductService {
      * @return productList
      */
     public List<DummyProductDTO> getProducts(){
-        return ProductToDtoMapper.convert(productRepository.findAll());
+        return ProductToDtoMapper.convert(productRepository.findAll(new Sort(Sort.Direction.DESC, "id")));
     }
 
 }
