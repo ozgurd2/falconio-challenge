@@ -14,6 +14,8 @@ services:
      environment:
        KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
        KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+     depends_on:
+       - zookeeper
 
    kafka-manager:
      image: sheepkiller/kafka-manager
@@ -36,6 +38,5 @@ services:
 
    adminer:
      image: adminer
-     restart: always
      ports:
        - 8085:8080
