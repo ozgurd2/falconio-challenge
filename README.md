@@ -21,8 +21,8 @@ Run the following commands in separate terminal to run application.
 Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
 
 ## Architecture 
-* DummyProductJsonController#createProduct : A REST endpoint is taking a dummy JSON input 
-  dummy json : io.falcon.challenge.dto.DummyProductDTO
+* ProductJsonController#createProduct : A REST endpoint is taking a dummy JSON input 
+  dummy json : io.falcon.challenge.dto.ProductDTO
   
   sample call : 
 
@@ -32,7 +32,7 @@ Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
 * ProductReceiverConsumer : A Consumer is running in the application, taking the freshly received message and persists it in a Postgresql database
   entity : io.falcon.challenge.entity.Product
     
-* DummyProductJsonController#getProducts :A REST endpoint is implemented for retrieving all the messages persisted in JSON format from the database
+* ProductJsonController#getProducts :A REST endpoint is implemented for retrieving all the messages persisted in JSON format from the database
    
    sample call: 
 
