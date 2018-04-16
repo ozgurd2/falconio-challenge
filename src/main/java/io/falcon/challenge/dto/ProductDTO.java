@@ -1,5 +1,7 @@
 package io.falcon.challenge.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -7,6 +9,7 @@ import java.io.Serializable;
  */
 public class ProductDTO implements Serializable{
 
+    @NotNull @NotBlank
     private String productName;
     private String productDescription;
 

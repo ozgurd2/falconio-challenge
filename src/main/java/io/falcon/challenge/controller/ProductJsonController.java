@@ -1,5 +1,6 @@
 package io.falcon.challenge.controller;
 
+import io.falcon.challenge.dto.ErrorDTO;
 import io.falcon.challenge.dto.ProductDTO;
 import io.falcon.challenge.service.ProductJsonService;
 import io.falcon.challenge.service.RetrieveAllProductService;
@@ -48,6 +49,16 @@ public class ProductJsonController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ProductDTO>> getProducts() {
         return new ResponseEntity<>(retrieveAllProductService.getProducts(), HttpStatus.OK);
+    }
+
+    /**
+     * Controller Advice to handle exceptions
+     * @param e  kind a exception
+     * @return error dto
+     */
+    @ExceptionHandler({Exception.class})
+    public ResponseEntity<ErrorDTO> handleException(Exception e) {
+        return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
     }
 
 }
