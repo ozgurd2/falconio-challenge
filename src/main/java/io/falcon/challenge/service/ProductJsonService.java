@@ -15,6 +15,10 @@ public class ProductJsonService {
         this.topicNames = topicNames;
     }
 
+    /**
+     * send product dto to related topic
+     * @param productDTO dto
+     */
     public void publish(ProductDTO productDTO) {
         productSenderService.send(topicNames.getProductTopic(), productDTO);
     }

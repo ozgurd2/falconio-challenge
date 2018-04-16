@@ -10,6 +10,10 @@ public class WebSocketBroadcastService {
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
 
+    /**
+     * simple broadcasting method to send message connected clients
+     * @param message message
+     */
     public void send(String message) {
         messagingTemplate.convertAndSend("/topic/messages", message);
     }
