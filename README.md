@@ -27,7 +27,7 @@ Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
   sample call : 
 
 
-    curl -X POST http://localhost:8080/create -H 'content-type: application/json' -d '{"productName": "testName","productDescription": "testDescription"}'
+    curl -X POST http://localhost:8080/products -H 'content-type: application/json' -d '{"productName": "testName","productDescription": "testDescription"}'
 
 * ProductReceiverConsumer : A Consumer is running in the application, taking the freshly received message and persists it in a Postgresql database
   entity : io.falcon.challenge.entity.Product
@@ -37,7 +37,7 @@ Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
    sample call: 
 
 
-    curl -X GET http://localhost:8080/getProducts
+    curl -X GET http://localhost:8080/products
 
 * WebSocketBroadcastService : A Service to broadcasting of connected clients
 * [http://localhost:8080](http://localhost:8080) a simple index.html for notifications

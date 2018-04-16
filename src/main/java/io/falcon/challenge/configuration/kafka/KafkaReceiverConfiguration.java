@@ -1,6 +1,6 @@
 package io.falcon.challenge.configuration.kafka;
 
-import io.falcon.challenge.dto.DummyProductDTO;
+import io.falcon.challenge.dto.ProductDTO;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,7 +20,7 @@ import java.util.Map;
 /**
  * A Configuration class for consuming dummy Json
  *
- * @see DummyProductDTO for Dummy json format
+ * @see ProductDTO for Dummy json format
  */
 @Configuration
 @EnableKafka
@@ -41,17 +41,17 @@ public class KafkaReceiverConfiguration {
     }
 
     @Bean
-    public ConsumerFactory<String, DummyProductDTO> consumerFactory() {
+    public ConsumerFactory<String, ProductDTO> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(
                 consumerConfigs(),
                 new StringDeserializer(),
-                new JsonDeserializer<>(DummyProductDTO.class)
+                new JsonDeserializer<>(ProductDTO.class)
         );
     }
 
     @Bean
-    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, DummyProductDTO>> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, DummyProductDTO> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, ProductDTO>> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, ProductDTO> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         factory.getContainerProperties().setPollTimeout(4000);
         factory.getContainerProperties().setIdleEventInterval(200000L);

@@ -1,7 +1,7 @@
 package io.falcon.challenge.mapper;
 
-import io.falcon.challenge.dto.DummyProductDTO;
-import io.falcon.challenge.dto.DummyProductDTOBuilder;
+import io.falcon.challenge.dto.ProductDTO;
+import io.falcon.challenge.dto.ProductDTOBuilder;
 import io.falcon.challenge.entity.Product;
 
 import java.util.List;
@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 
 public class ProductToDtoMapper {
 
-    public static List<DummyProductDTO> convert(List<Product> products) {
-        return  products.stream().map(product -> DummyProductDTOBuilder.aDummyProductDTO()
+    public static List<ProductDTO> convert(List<Product> products) {
+        return  products.stream().map(product -> ProductDTOBuilder.aDummyProductDTO()
                 .productName(product.getProductName())
                 .productDescription(product.getProductDescription())
                 .build()).collect(Collectors.toList());

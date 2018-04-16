@@ -1,7 +1,7 @@
 package io.falcon.challenge.service;
 
-import io.falcon.challenge.dto.DummyProductDTO;
-import io.falcon.challenge.dto.DummyProductDTOBuilder;
+import io.falcon.challenge.dto.ProductDTO;
+import io.falcon.challenge.dto.ProductDTOBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -22,16 +22,16 @@ public class ProductSenderServiceTest {
     private WebSocketBroadcastService webSocketBroadcastService;
 
     @Mock
-    private KafkaTemplate<String, DummyProductDTO> kafkaTemplate;
+    private KafkaTemplate<String, ProductDTO> kafkaTemplate;
 
     @Test
     public void shouldSendMessageToKafkaAndWebSocket() throws Exception {
-        DummyProductDTO dummyProductDTO = DummyProductDTOBuilder.aDummyProductDTO().productName("n").productDescription("d").build();
-        String message = String.format("new products!<br/> name :%s <br/> description: %s", dummyProductDTO.getProductName(), dummyProductDTO.getProductDescription());
+        ProductDTO productDTO = ProductDTOBuilder.aDummyProductDTO().productName("n").productDescription("d").build();
+        String message = String.format("new products!<br/> name :%s <br/> description: %s", productDTO.getProductName(), productDTO.getProductDescription());
 
-        productSenderService.send("topic", dummyProductDTO);
+        productSenderService.send("topic", productDTO);
 
-        verify(kafkaTemplate).send("topic", dummyProductDTO);
+        verify(kafkaTemplate).send("topic", productDTO);
         verify(webSocketBroadcastService).send(message);
     }
 

@@ -20,4 +20,4 @@ spring:
         group-id: embedded1
         auto-offset-reset: earliest
       topic:
-        producttopic: producttopic.t
+        producttopic: producttopictest.t

@@ -1,6 +1,6 @@
 package io.falcon.challenge.service;
 
-import io.falcon.challenge.dto.DummyProductDTO;
+import io.falcon.challenge.dto.ProductDTO;
 import io.falcon.challenge.entity.Product;
 import io.falcon.challenge.repository.ProductRepository;
 import org.junit.Test;
@@ -33,7 +33,7 @@ public class RetrieveAllProductServiceTest {
 
         when(productRepository.findAll(new Sort(Sort.Direction.DESC, "id"))).thenReturn(Arrays.asList(product));
 
-        List<DummyProductDTO> products = retrieveAllProductService.getProducts();
+        List<ProductDTO> products = retrieveAllProductService.getProducts();
 
         assertThat(products.get(0).getProductName()).isEqualTo(product.getProductName());
         assertThat(products.get(0).getProductDescription()).isEqualTo(product.getProductDescription());

@@ -2,8 +2,8 @@ package io.falcon.challenge.util;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.falcon.challenge.dto.DummyProductDTO;
-import io.falcon.challenge.dto.DummyProductDTOBuilder;
+import io.falcon.challenge.dto.ProductDTO;
+import io.falcon.challenge.dto.ProductDTOBuilder;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -27,7 +27,7 @@ public class TestUtil {
 
     @Test
     public void testConvertion() throws IOException {
-        DummyProductDTO build = DummyProductDTOBuilder.aDummyProductDTO().productDescription("desc").productName("name").build();
+        ProductDTO build = ProductDTOBuilder.aDummyProductDTO().productDescription("desc").productName("name").build();
         assertThat(toJson(build)).isEqualTo("{\"productName\":\"name\",\"productDescription\":\"desc\"}");
     }
 }

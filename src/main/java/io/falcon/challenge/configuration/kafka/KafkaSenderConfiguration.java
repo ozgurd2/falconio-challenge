@@ -1,6 +1,6 @@
 package io.falcon.challenge.configuration.kafka;
 
-import io.falcon.challenge.dto.DummyProductDTO;
+import io.falcon.challenge.dto.ProductDTO;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,12 +32,12 @@ public class KafkaSenderConfiguration {
     }
 
     @Bean
-    public ProducerFactory<String, DummyProductDTO> producerFactory() {
+    public ProducerFactory<String, ProductDTO> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 
     @Bean
-    public KafkaTemplate<String, DummyProductDTO> kafkaTemplate() {
+    public KafkaTemplate<String, ProductDTO> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 

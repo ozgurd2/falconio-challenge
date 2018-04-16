@@ -1,6 +1,6 @@
 package io.falcon.challenge.consumer;
 
-import io.falcon.challenge.dto.DummyProductDTO;
+import io.falcon.challenge.dto.ProductDTO;
 import io.falcon.challenge.entity.Product;
 import io.falcon.challenge.repository.ProductRepository;
 import org.slf4j.Logger;
@@ -31,19 +31,19 @@ public class ProductReceiverConsumer {
     /**
      * kafka listener for product data transfer object
      *
-     * @param dummyProductDTO dto
+     * @param productDTO dto
      */
     @KafkaListener(topics = "${spring.kafka.topic.producttopic}")
-    public void receive(DummyProductDTO dummyProductDTO)  {
-        LOGGER.info("received payload {} ", dummyProductDTO);
-        saveProduct(dummyProductDTO);
+    public void receive(ProductDTO productDTO)  {
+        LOGGER.info("received payload {} ", productDTO);
+        saveProduct(productDTO);
         latch.countDown();
     }
 
-    private void saveProduct(DummyProductDTO dummyProductDTO) {
+    private void saveProduct(ProductDTO productDTO) {
         Product product = new Product();
-        product.setProductDescription(dummyProductDTO.getProductDescription());
-        product.setProductName(dummyProductDTO.getProductName());
+        product.setProductDescription(productDTO.getProductDescription());
+        product.setProductName(productDTO.getProductName());
         productRepository.save(product);
     }
 

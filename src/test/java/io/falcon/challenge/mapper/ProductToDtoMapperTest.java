@@ -1,6 +1,6 @@
 package io.falcon.challenge.mapper;
 
-import io.falcon.challenge.dto.DummyProductDTO;
+import io.falcon.challenge.dto.ProductDTO;
 import io.falcon.challenge.entity.Product;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,10 +31,10 @@ public class ProductToDtoMapperTest {
 
         List<Product> products = Arrays.asList(product1, product2, product3);
 
-        List<DummyProductDTO> dummyProductDTOS = ProductToDtoMapper.convert(products);
+        List<ProductDTO> productDTOS = ProductToDtoMapper.convert(products);
 
-        assertThat(dummyProductDTOS.size()).isEqualTo(products.size());
-        assertThat(dummyProductDTOS.get(2).getProductName()).isEqualTo(products.get(2).getProductName());
+        assertThat(productDTOS.size()).isEqualTo(products.size());
+        assertThat(productDTOS.get(2).getProductName()).isEqualTo(products.get(2).getProductName());
     }
 
 }

@@ -10,7 +10,7 @@ public class WebSocketBroadcastService {
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
 
-    public void send(String message) throws Exception {
+    public void send(String message) {
         messagingTemplate.convertAndSend("/topic/messages", message);
     }
 

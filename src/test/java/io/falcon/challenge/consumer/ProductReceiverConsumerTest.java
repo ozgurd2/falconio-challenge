@@ -1,7 +1,7 @@
 package io.falcon.challenge.consumer;
 
-import io.falcon.challenge.dto.DummyProductDTO;
-import io.falcon.challenge.dto.DummyProductDTOBuilder;
+import io.falcon.challenge.dto.ProductDTO;
+import io.falcon.challenge.dto.ProductDTOBuilder;
 import io.falcon.challenge.entity.Product;
 import io.falcon.challenge.repository.ProductRepository;
 import org.junit.Test;
@@ -23,7 +23,7 @@ public class ProductReceiverConsumerTest {
 
     @Test
     public void shouldSaveReceivedMessage() {
-        DummyProductDTO productDTO = DummyProductDTOBuilder.aDummyProductDTO()
+        ProductDTO productDTO = ProductDTOBuilder.aDummyProductDTO()
                 .productName("name1")
                 .productDescription("descp1")
                 .build();
