@@ -46,5 +46,9 @@ Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
 
 To launch your application's tests, run:
 
+
+    docker-compose up
+
+
     ./mvnw clean test
 
